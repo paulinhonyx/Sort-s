@@ -42,6 +42,6 @@ elif vetor == 4:
     vetor = 1000
 else:
     vetor = 10000
-for x in range(50):
+for x in range(1, 50):
     print("Lista ordenada:", gerar(vetor), "\n")
     print("-" * 100)
