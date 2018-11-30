@@ -24,6 +24,24 @@ def gerar(int):
     return quick_sort(resposta)
 
 
-print("Qual o tamanho do vetor:\n")
+print("Qual o tamanho do vetor:")
+print("1 - 5\n2 - 10\n3 - 100\n4 - 1000\n5 - 10000\n")
 vetor = int(input())
-print("Lista ordenada:", gerar(vetor))
+while vetor < 1 or vetor > 5:
+    print("Opção invalida.")
+    print("Qual o tamanho do vetor:")
+    print("1 - 5\n2 - 10\n3 - 100\n4 - 1000\n5 - 10000\n")
+    vetor = int(input())
+if vetor == 1:
+    vetor = 5
+elif vetor == 2:
+    vetor = 10
+elif vetor == 3:
+    vetor = 100
+elif vetor == 4:
+    vetor = 1000
+else:
+    vetor = 10000
+for x in range(50):
+    print("Lista ordenada:", gerar(vetor), "\n")
+    print("-" * 100)

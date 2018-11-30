@@ -1,19 +1,37 @@
-def count_sort(lista):
-    contagem = [0 for i in range(max(lista) + 1)]
+from math import log10
 
-    for i in lista:
-        contagem[i] += 1
 
-    for indice in range(1, len(contagem)):
-        contagem[indice] = contagem[indice - 1] + contagem[indice]
+def get_digi(numero, base, pos):
+    return (numero // base ** pos) % base
 
-    L = [0 for loop in range(len(lista))]
-    for i in lista:
-        indice = contagem[i] - 1
-        L[indice] = i
-        contagem[i] -= 1
 
-    return L
+def prefix_sum(lista):
+    for i in range(1, len(lista)):
+        lista[i] = lista[i] + lista[i - 1]
+    return lista
+
+
+def radix_sort(l, base=10):
+    passes = int(log10(max(l)) + 1)
+    saida = [0] * len(l)
+
+    for pos in range(passes):
+        cont = [0] * base
+
+        for i in l:
+            digi = get_digi(i, base, pos)
+            cont[digi] += 1
+
+        cont = prefix_sum(cont)
+
+        for i in reversed(l):
+            digi = get_digi(i, base, pos)
+            cont[digi] -= 1
+            nova_pos = cont[digi]
+            saida[nova_pos] = i
+
+        l = list(saida)
+    return saida
 
 
 def gerar(int):
@@ -25,7 +43,7 @@ def gerar(int):
         lista[i] = randint(0, 1000)
 
     print("Lista não ordenada:", lista, "\n")
-    return count_sort(lista)
+    return radix_sort(lista)
 
 
 print("Qual o tamanho do vetor:")
