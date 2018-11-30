@@ -14,14 +14,11 @@ def prefix_sum(lista):
 def radix_sort(l, base=10):
     passes = int(log10(max(l)) + 1)
     saida = [0] * len(l)
-
     for pos in range(passes):
         cont = [0] * base
-
         for i in l:
             digi = get_digi(i, base, pos)
             cont[digi] += 1
-
         cont = prefix_sum(cont)
 
         for i in reversed(l):

@@ -1,4 +1,5 @@
 def quick_sort(lista):
+    global comp
     if len(lista) <= 1:
         return lista
 
@@ -7,7 +8,7 @@ def quick_sort(lista):
         equal = [x for x in lista if x == pivo]
         lesser = [x for x in lista if x < pivo]
         greater = [x for x in lista if x > pivo]
-        # print(lista)
+        comp += 1
         return quick_sort(lesser) + equal + quick_sort(greater)
     print(lista)
 
@@ -43,5 +44,7 @@ elif vetor == 4:
 else:
     vetor = 10000
 for x in range(1, 50):
+    comp = 0
     print("Lista ordenada:", gerar(vetor), "\n")
+    print("Comparações:", comp)
     print("-" * 100)

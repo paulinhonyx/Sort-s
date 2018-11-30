@@ -1,6 +1,3 @@
-comp = 0
-
-
 def max_heapfy(lista, raiz, tamanho):
     esq = 2 * raiz + 1
     dir = 2 * raiz + 2
@@ -8,14 +5,12 @@ def max_heapfy(lista, raiz, tamanho):
     global comp
     if esq < tamanho and lista[esq] > lista[raiz]:
         maior = esq
-        comp += 1
     if dir < tamanho and lista[dir] > lista[maior]:
         maior = dir
-        comp += 1
     if maior != raiz:
         lista[maior], lista[raiz] = lista[raiz], lista[maior]
         max_heapfy(lista, maior, tamanho)
-        comp += 1
+    comp += 1
 
 
 def heap_sort(lista):
@@ -23,11 +18,9 @@ def heap_sort(lista):
     global comp
     for i in range(n // 2, -1, -1):
         max_heapfy(lista, i, n - 1)
-        comp += 1
     for i in range(n - 1, 0, -1):
         lista[0], lista[i] = lista[i], lista[0]
         max_heapfy(lista, 0, i)
-        comp += 1
     print("Lista ordenada:", lista)
     print("Comparações:", comp)
     return lista
@@ -64,5 +57,6 @@ elif vetor == 4:
 else:
     vetor = 10000
 for x in range(1, 50):
+    comp = 0
     gerar(vetor)
     print("-" * 100)

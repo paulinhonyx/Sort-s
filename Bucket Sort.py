@@ -1,11 +1,17 @@
+comp = 0
+
+
 def inserir(elemento, newLista):
+    global comp
     if len(newLista) == 0:
         newLista.append(elemento)
+        comp += 1
         return newLista
 
     for i in range(len(newLista)):
         if elemento < newLista[i]:
             newLista.insert(i, elemento)
+            comp += 1
             return newLista
 
     newLista.append(elemento)
@@ -84,5 +90,7 @@ elif vetor == 4:
 else:
     vetor = 10000
 for x in range(1, 50):
+    comp = 0
     gerar(vetor)
+    print("Comparações:", comp)
     print("-" * 100)
