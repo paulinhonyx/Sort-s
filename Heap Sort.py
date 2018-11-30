@@ -1,3 +1,7 @@
+comp = 0
+cont = 0
+
+
 def max_heapfy(lista, raiz, tamanho):
     esq = 2 * raiz + 1
     dir = 2 * raiz + 2
@@ -56,7 +60,9 @@ elif vetor == 4:
     vetor = 1000
 else:
     vetor = 10000
-for x in range(1, 50):
+for x in range(51):
+    cont += comp
     comp = 0
     gerar(vetor)
     print("-" * 100)
+print("Media de comparações:", cont / 50)

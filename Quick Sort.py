@@ -1,3 +1,7 @@
+comp = 0
+cont = 0
+
+
 def quick_sort(lista):
     global comp
     if len(lista) <= 1:
@@ -43,8 +47,10 @@ elif vetor == 4:
     vetor = 1000
 else:
     vetor = 10000
-for x in range(1, 50):
+for x in range(51):
+    cont += comp
     comp = 0
     print("Lista ordenada:", gerar(vetor), "\n")
     print("Comparações:", comp)
     print("-" * 100)
+print("Media de comparações:", cont / 50)

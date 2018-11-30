@@ -1,7 +1,10 @@
+comparacoes = 0
+cont = 0
+
 def bubble_sort(lista):
     elementos = len(lista) - 1
     ordenado = False
-    comparacoes = 0
+    global comparacoes
     while not ordenado:
         ordenado = True
 
@@ -47,6 +50,9 @@ elif vetor == 4:
     vetor = 1000
 else:
     vetor = 10000
-for x in range(1, 50):
+for x in range(51):
+    cont += comparacoes
+    comparacoes = 0
     gerar(vetor)
     print("-" * 100)
+print("Media de comparações:", cont / 50)

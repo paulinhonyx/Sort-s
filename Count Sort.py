@@ -1,3 +1,6 @@
+comp = 0
+
+
 def count_sort(lista):
     contagem = [0 for i in range(max(lista) + 1)]
     global comp
@@ -47,8 +50,11 @@ elif vetor == 4:
     vetor = 1000
 else:
     vetor = 10000
-for x in range(1, 50):
+cont = 0
+for x in range(51):
+    cont = cont + comp
     comp = 0
     print("Lista ordenada:", gerar(vetor))
     print("Comparações:", comp)
     print("-" * 100)
+print("\n\nMedia de comparações:", cont / 50)

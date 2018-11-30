@@ -1,7 +1,9 @@
+comparacoes = 0
+cont = 0
+
 def insertion_sort(lista):
     elementos = len(lista)
-    comparacoes = 0
-
+    global comparacoes
     for j in range(1, elementos):
         pivo = lista[j]
         i = j - 1
@@ -12,6 +14,7 @@ def insertion_sort(lista):
             comparacoes += 1
 
         lista[i + 1] = pivo
+
     print("comparações:", comparacoes)
     return lista
 
@@ -46,6 +49,9 @@ elif vetor == 4:
     vetor = 1000
 else:
     vetor = 10000
-for x in range(1, 50):
-    print("Lista ordenada:",gerar(vetor))
+for x in range(51):
+    cont = cont + comparacoes
+    comparacoes = 0
+    print("Lista ordenada:", gerar(vetor))
     print("-" * 100)
+print("Media de comparações:", cont / 50)
